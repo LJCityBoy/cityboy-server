@@ -1,15 +1,15 @@
 const Router = require('koa-router');
+const fs = require('fs');
+const path = require('path');
 
-
+// console.log("dd",fs);
 
 //测试
 let router = new Router();
 
 router.get('/test',async ctx =>{
-    let dats = await ctx.db.query("SELECT * FROM article_table");
-    ctx.body = dats[0].article;
-    //读取用户数据
-    // ctx.body = await ctx.db.query("SELECT * FROM article_table");
+    console.log("测试连接");
+   ctx.body = 'heheheheh';
 });
 
 /**
@@ -22,27 +22,17 @@ router.get('/test',async ctx =>{
  */
 router.post('/upload_article',async (ctx) =>{
 
-    // console.log(ctx.request.fields.coverIcon);
-    // [ 'app',
-    //     'req',
-    //     'res',
-    //     'ctx',
-    //     'response',
-    //     'originalUrl',
-    //     'json',
-    //     '_parse_json',
-    //     'urlencoded',
-    //     '_parse_urlencoded',
-    //     'text',
-    //     'buffer',
-    //     'multipart',
-    //     'fields',
-    //     'files' ]
-    const {coverIcon,articleTitle,articleData,postTime,author} = ctx.request.fields;
+    console.log("参数",ctx.request.fields);
+    let {coverIcon,articleTitle,articleData,postTime,author} =  ctx.request.fields;
+
+    let homePart = path.dirname(__dirname,"..");
+    console.log("llllllll",homePart);
+
+
     //把数据获取到并存到数据库中
-    await ctx.db.query("INSERT INTO article_table (article, title, coverIcon, postTime,author) VALUE (?,?,?,?,?)",
-        [articleData,articleTitle,coverIcon[0].path,postTime,author]);
-    return ctx.body = {
+    // await ctx.db.query("INSERT INTO article_table (article, title, coverIcon, postTime,author) VALUE (?,?,?,?,?)",
+    //     [articleData,articleTitle,coverIcon[0].path,postTime,author]);
+    return  ctx.body = {
         message:'上传成功！',
         state: 1
     };
