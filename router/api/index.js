@@ -22,17 +22,20 @@ router.get('/test',async ctx =>{
  */
 router.post('/upload_article',async (ctx) =>{
 
-    console.log("参数",ctx.request.fields);
-    let {coverIcon,articleTitle,articleData,postTime,author} =  ctx.request.fields;
-
-    let homePart = path.dirname(__dirname,"..");
-    console.log("llllllll",homePart);
+    // console.log("参数",ctx.request.fields);
+    let postData = ctx.request.fields;
+     
+    const {coverIcon,articleTitle,articleData,postTime,author} =  ctx.request.fields;
+    // console.log("参数",coverIcon[0]);
+    // let homePart = path.dirname(__dirname,"..");
+    // console.log("llllllll",homePart);
 
 
     //把数据获取到并存到数据库中
-    // await ctx.db.query("INSERT INTO article_table (article, title, coverIcon, postTime,author) VALUE (?,?,?,?,?)",
-    //     [articleData,articleTitle,coverIcon[0].path,postTime,author]);
-    return  ctx.body = {
+    await ctx.db.query("INSERT INTO article_table (article, title, coverIcon, postTime,author) VALUE (?,?,?,?,?)",
+        [articleData,articleTitle,coverIcon[0].path,postTime,author]);
+
+     return ctx.body = {
         message:'上传成功！',
         state: 1
     };

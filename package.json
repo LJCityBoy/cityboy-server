@@ -14,7 +14,7 @@
     "co-mysql": "^1.0.0",
     "koa": "^2.7.0",
     "koa-better-body": "^3.0.4",
-    "koa-bodyparser": "~4.2.1",
+    "koa-cors": "0.0.16",
     "koa-formidable": "^1.1.0",
     "koa-router": "^7.4.0",
     "koa-static": "^5.0.0",

@@ -4,7 +4,7 @@ const mysql = require('mysql');
 const co = require('co-mysql');
 const body = require('koa-better-body');
 const staticd = require('koa-static');
-// const bodyParser = require('koa-bodyparser');
+const cors = require('koa-cors');
 // const formidable = require('koa-formidable');
 
 
@@ -12,7 +12,7 @@ const staticd = require('koa-static');
 let config = {
     host : '132.232.40.236',
     user : 'root',
-    password : '',
+    password : 'jiang',
     database : 'cityboy',
     // port : '',
     multipleStatements:true //允许多条sql语句通顺进行
@@ -23,10 +23,13 @@ let server = new Koa();
 
 server.listen(9001);
 
-let obj = body({uploadDir:'/upload'});
+let obj = body({
+    uploadDir:'./upload',
+    formLimit:'8mb'
+});
 server.use(obj);
 //static静态文件
-server.use(staticd(__dirname,'/upload'));
+// server.use(staticd(__dirname +'/upload'));
 
 
 server.context.db = co(conn);
@@ -36,6 +39,8 @@ server.use(async (ctx,next) => {
    ctx.set('Access-Control-Allow-Origin','*');
     await next()
 });
+server.use(cors());
+
 console.log('listen in 9001');
 
 //使用路由
