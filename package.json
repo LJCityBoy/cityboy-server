@@ -4,21 +4,23 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "cityboy",
   "license": "ISC",
-  "devDependencies": {
-    "co-mysql": "^1.0.0",
+  "devDependencies": {},
+  "dependencies": {
     "koa": "^2.7.0",
-    "koa-better-body": "^3.0.4",
-    "koa-cors": "0.0.16",
-    "koa-formidable": "^1.1.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-mysql-session": "^0.0.2",
     "koa-router": "^7.4.0",
+    "koa-session-minimal": "^3.0.4",
     "koa-static": "^5.0.0",
+    "koa-views": "^6.2.0",
+    "md5": "^2.2.1",
+    "moment": "^2.24.0",
     "mysql": "^2.16.0"
-  },
-  "dependencies": {}
+  }
 }

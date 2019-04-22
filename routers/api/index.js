@@ -26,10 +26,11 @@ router.post('/upload_article',async (ctx) =>{
     let postData = ctx.request.fields;
      
     const {coverIcon,articleTitle,articleData,postTime,author} =  ctx.request.fields;
-    // console.log("参数",coverIcon[0]);
+    console.log("参数",author);
     // let homePart = path.dirname(__dirname,"..");
     // console.log("llllllll",homePart);
 
+    console.log("参数db",ctx.db);
 
     //把数据获取到并存到数据库中
     await ctx.db.query("INSERT INTO article_table (article, title, coverIcon, postTime,author) VALUE (?,?,?,?,?)",

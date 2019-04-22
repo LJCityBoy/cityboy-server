@@ -14,10 +14,11 @@ let config = {
     user : 'root',
     password : 'jiang',
     database : 'cityboy',
-    // port : '',
-    multipleStatements:true //允许多条sql语句通顺进行
+    // port : '3306',
+    // multipleStatements:true //允许多条sql语句通顺进行
 }
 let conn = mysql.createPool(config);
+
 
 let server = new Koa();
 
@@ -33,6 +34,7 @@ server.use(obj);
 
 
 server.context.db = co(conn);
+console.log('数据库连接',server.context.db);
 
 //允许跨域
 server.use(async (ctx,next) => {
