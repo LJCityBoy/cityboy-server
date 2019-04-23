@@ -7,9 +7,10 @@ module.exports = (config =>{
             return total
         },[])
         copy = copy.concat(newArr)
+        return copy
     },[])
 })([
     'admin',
-    'publish',
-    'edit'
+    'pages',
+    'users'
 ])
