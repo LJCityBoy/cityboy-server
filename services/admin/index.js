@@ -1,4 +1,4 @@
-const controller = require('../../controller/admin')
+// const controller = require('../../controller/admin')
 // const { success, failed } = require('../../helper/pojo')
 const model = require('../model')
 const m = model([
@@ -11,7 +11,7 @@ const m = model([
 
 module.exports = {
     ...m,
-} ;
+} 
 
 
 //这里每个方法都是统一写法，所有封装到model中

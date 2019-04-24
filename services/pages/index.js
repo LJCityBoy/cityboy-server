@@ -1,5 +1,4 @@
-const controller = require('../../controller/pages')
-// const { success, failed } = require('../../helper/pojo')
+
 const model = require('../model')
 const m = model([
     'rec',
@@ -7,6 +6,7 @@ const m = model([
     'clas',
     'all',
 ],'pages')
+
 module.exports = {
     ...m,
 };

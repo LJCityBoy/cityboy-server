@@ -28,6 +28,7 @@ const login = (val) => {
 
 
 
+
 /**
  *  'fabu' : {method:methods.post},  //发表文章
     'edit':{method:methods.post}, //编辑文章
@@ -39,5 +40,6 @@ module.exports = {
     fabu,
     edit,
     del,
-    login
+    login,
+    
 }

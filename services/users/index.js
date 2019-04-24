@@ -1,4 +1,4 @@
-const controller = require('../../controller/users')
+// const controller = require('../../controller/users')
 const model = require('../model')
 const m = model([
     'reg',

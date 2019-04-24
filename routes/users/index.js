@@ -1,3 +1,4 @@
+
 const methods = require('../methods')
 module.exports = {
     'reg' : {method:methods.post},  //注册用户

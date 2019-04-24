@@ -48,5 +48,5 @@ console.log('listen in 9001');
 //使用路由
 let router = new Router();
 //api路由
-router.use('/api',require('./router/api'));
+router.use('/api',require('./api/index'));
 server.use(router.routes());

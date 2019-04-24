@@ -22,6 +22,8 @@ const changePass = (val) => {
 
 
 
+
+
 /**
  *  'reg' : {method:methods.post},  //注册用户
     'changeMess':{method:methods.post}, //修改信息
@@ -31,5 +33,6 @@ const changePass = (val) => {
 module.exports = {
     reg,
     changeMess,
-    changePass
+    changePass,
+    
 }
