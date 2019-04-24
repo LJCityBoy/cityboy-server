@@ -1,8 +1,8 @@
-const fabu = (val) => {
+const upload_article = (val) => {
 
-    console.log("测试测试fabu");
+    console.log("测试测试upload_article",val);
 
-    return '测试返回fabu'
+    return '测试返回upload_article'
 }
 
 const edit = (val) => {
@@ -30,14 +30,14 @@ const login = (val) => {
 
 
 /**
- *  'fabu' : {method:methods.post},  //发表文章
+ *  'upload_article' : {method:methods.post},  //发表文章
     'edit':{method:methods.post}, //编辑文章
     'del':{method:methods.post}, //删除文章
     'login': {method:methods.post },
  */
 
 module.exports = {
-    fabu,
+    upload_article,
     edit,
     del,
     login,

@@ -1,8 +1,10 @@
 var Koa = require('koa');
 var path = require('path');
+const mysql = require('mysql');
+const co = require('co-mysql');
 var bodyParser = require('koa-bodyparser');
 var session = require('koa-session-minimal');
-var MysqlStore = require('koa-mysql-session');
+// var MysqlStore = require('koa-mysql-session');
 var config = require('./config/defaults');
 // var Router = require('koa-router');
 // var views = require('koa-views');
@@ -10,17 +12,19 @@ var koaStatic = require('koa-static');
 var app = new Koa();
 var routers = require('./routers/index');
 
-//session存储配置
-const sessionMysqlConfig = {
+//数据库配置
+const sqlConfig = {
     user:config.database.USERNAME,
     password:config.database.PASSWORD,
     database:config.database.DATABASE,
     host:config.database.HOST,
 }
+let conn = mysql.createPool(sqlConfig);
+app.context.db = co(conn);
 //配置session中间件
 app.use(session({
     key:"CITYBOY_KEYS",
-    store: new MysqlStore(sessionMysqlConfig)
+    // store: new MysqlStore(sessionMysqlConfig)
 }))
 
 //跨域配置
@@ -35,7 +39,7 @@ app.use(async (ctx, next)=> {
 
 //配置静态资源加载中间件
 app.use(koaStatic(
-    path.join(__dirname,'./upload')
+    path.join(__dirname , './public')
 ))
 
 //表单解析中间件

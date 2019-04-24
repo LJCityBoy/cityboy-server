@@ -2,7 +2,7 @@
 // const { success, failed } = require('../../helper/pojo')
 const model = require('../model')
 const m = model([
-    'fabu',
+    'upload_article',
     'edit',
     'del',
     'login',
