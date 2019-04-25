@@ -29,7 +29,7 @@ app.use(session({
 
 //跨域配置
 app.use(async (ctx, next)=> {
-    ctx.set('Access-Control-Allow-Headers', 'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With')
+    ctx.set('Access-Control-Allow-Headers', 'Authorization, X-Requested-With')
     ctx.set('Access-Control-Allow-Origin', '*');
     ctx.set('Access-Control-Allow-Methods', 'PUT,DELETE,POST,GET');
     ctx.set('Access-Control-Allow-Credentials', true);
@@ -43,7 +43,11 @@ app.use(koaStatic(
 ))
 
 //表单解析中间件
-app.use(bodyParser())
+app.use(bodyParser({
+    "formLimit":"8mb",
+    "jsonLimit":"8mb",
+    "textLimit":"8mb"
+}))
 
 // let router = new Router()
 
