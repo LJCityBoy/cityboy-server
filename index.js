@@ -44,9 +44,9 @@ app.use(koaStatic(
 
 //表单解析中间件
 app.use(bodyParser({
-    "formLimit":"8mb",
-    "jsonLimit":"8mb",
-    "textLimit":"8mb"
+    "formLimit":"300mb",
+    "jsonLimit":"300mb",
+    "textLimit":"300mb"
 }))
 
 // let router = new Router()
